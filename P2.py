@@ -63,5 +63,3 @@ for device in response_list:
 
 #pprint(wireless_list)
 #pprint(appliance_list)
-
-
