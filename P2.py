@@ -27,7 +27,8 @@ response = requests.get(url, headers=headers, data = payload)
 
 organizations = response.text.encode('utf8')
 organizations_json = response.json()
-print(organizations_json)
+organizations_list = json.dumps(organizations_json)
+print(organizations_list)
 
 #Al hacer la entrega, le solicitan crear un repositorio en el servicio de su preferencia 
 #(github, gitlab, bitbucket, etc.) para almacenar todo su código y compartirlo con la compañía.
