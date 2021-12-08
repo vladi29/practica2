@@ -47,7 +47,7 @@ headers1 = {
 }
 
 response = requests.get(url1, headers = headers1, data = payload1)
-pprint(response.json())
+#pprint(response.json())
 
 
 response_list = response.json()
@@ -64,15 +64,16 @@ for device in response_list:
 #pprint(wireless_list)
 #pprint(appliance_list)
 
-features = ['Modelo', 'Nombre', 'MAC', 'IP LAN', 'Serial', 'Estatus']
+features = ['Tipo', 'Modelo', 'Nombre', 'MAC', 'IP LAN', 'Serial', 'Estatus']
 
 with open("dispositivos.csv", 'w') as f:
     writer_f = csv.writer(f)
     writer_f.writerow(features)
     f.close()
 
-device_feature = []
 for device in wireless_list:
+    device_feature = []
+    device_feature.append(device['productType'])
     device_feature.append(device['model'])
     device_feature.append(device['name'])
     device_feature.append(device['mac'])
@@ -83,3 +84,4 @@ for device in wireless_list:
         writer_f = csv.writer(f)
         writer_f.writerow(device_feature)
     f.close()
+
