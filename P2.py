@@ -63,3 +63,23 @@ for device in response_list:
 
 #pprint(wireless_list)
 #pprint(appliance_list)
+
+features = ['Modelo', 'Nombre', 'MAC', 'IP LAN', 'Serial', 'Estatus']
+
+with open("dispositivos.csv", 'w') as f:
+    writer_f = csv.writer(f)
+    writer_f.writerow(features)
+    f.close()
+
+device_feature = []
+for device in wireless_list:
+    device_feature.append(device['model'])
+    device_feature.append(device['name'])
+    device_feature.append(device['mac'])
+    device_feature.append(device['lanIp'])
+    device_feature.append(device['serial'])
+    device_feature.append(device['configurationUpdatedAt'])
+    with open("dispositivos.csv", 'a', newline = '') as f:
+        writer_f = csv.writer(f)
+        writer_f.writerow(device_feature)
+    f.close()
