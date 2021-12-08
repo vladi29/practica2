@@ -4,7 +4,7 @@
 #Practica 2
 
 import os 
-#import pprint
+from pprint import pprint
 import requests 
 import json
 import yaml
@@ -27,8 +27,7 @@ response = requests.get(url, headers=headers, data = payload)
 
 organizations = response.text.encode('utf8')
 organizations_json = response.json()
-organizations_list = json.dumps(organizations_json)
-print(organizations_list)
+pprint(organizations_json)
 
 #Al hacer la entrega, le solicitan crear un repositorio en el servicio de su preferencia 
 #(github, gitlab, bitbucket, etc.) para almacenar todo su código y compartirlo con la compañía.
