@@ -29,6 +29,12 @@ organizations = response.text.encode('utf8')
 organizations_json = response.json()
 pprint(organizations_json)
 
+organizations_list = []
+for organization in organizations_json:
+    organizations_list.append(organization['name'])
+
+print(organizations_list)
+
 #2.- Al hacer la entrega, le solicitan crear un repositorio en el servicio de su preferencia 
 #(github, gitlab, bitbucket, etc.) para almacenar todo su código y compartirlo con la compañía.
 #Su primer commit debe contener el código y un archivo README con instrucciones básicas para utilizarlo.
