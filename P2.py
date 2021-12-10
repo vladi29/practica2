@@ -33,7 +33,7 @@ organizations_list = []
 for organization in organizations_json:
     organizations_list.append(organization['name'])
 
-print(organizations_list)
+print('Lista de organizaciones: ', organizations_list)
 
 #2.- Al hacer la entrega, le solicitan crear un repositorio en el servicio de su preferencia 
 #(github, gitlab, bitbucket, etc.) para almacenar todo su código y compartirlo con la compañía.
