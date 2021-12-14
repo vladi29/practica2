@@ -27,7 +27,7 @@ response = requests.get(url, headers = headers, data = payload)
 
 organizations = response.text.encode('utf8')
 organizations_json = response.json()
-pprint(organizations_json)
+#pprint(organizations_json)
 
 organizations_list = []
 for organization in organizations_json:
@@ -64,7 +64,6 @@ response_list = response.json()
 wireless_list = []
 appliance_list = []
 
-
 for device in response_list:
     if device['productType'] == 'wireless':
         wireless_list.append(device)
@@ -82,6 +81,20 @@ with open("dispositivos.csv", 'w') as f:
     f.close()
 
 for device in wireless_list:
+    device_feature = []
+    device_feature.append(device['productType'])
+    device_feature.append(device['model'])
+    device_feature.append(device['name'])
+    device_feature.append(device['mac'])
+    device_feature.append(device['lanIp'])
+    device_feature.append(device['serial'])
+    device_feature.append(device['configurationUpdatedAt'])
+    with open("dispositivos.csv", 'a', newline = '') as f:
+        writer_f = csv.writer(f)
+        writer_f.writerow(device_feature)
+    f.close()
+
+for device in appliance_list:
     device_feature = []
     device_feature.append(device['productType'])
     device_feature.append(device['model'])
