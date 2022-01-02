@@ -68,8 +68,6 @@ while True:
         response = requests.get(url1, headers = headers1, data = payload1)
         #pprint(response.json())
 
-        clock = time.time()
-
         response_list = response.json()
         wireless_list = []
         appliance_list = []
