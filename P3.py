@@ -7,7 +7,6 @@ import os
 from pprint import pprint
 import requests 
 import json
-import yaml
 import xmltodict
 import csv
 import time
